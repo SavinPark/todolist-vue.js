@@ -15,36 +15,14 @@
             <!-- ul.todo_list -->
             <ul class="todo_list">
                 <li class="todo_list_tit"><p>할 일</p></li>
-
-
-
-                <li class="del_btn">
+                <li class="del_btn" v-for="(item, index) in todolist" :key="index">
                     <p>
-                        <input type="checkbox" name="check1" value="">JS 공부하기
+                        <input type="checkbox" name="check1" value="">{{ item.todo }}
                     </p>
                     <ul class="todo_list_btn">
                         <li><button>수 정</button></li>
                         <li><button>삭 제</button></li>
                     </ul>
-                </li>
-
-
-
-                <li>
-                    <p><input type="checkbox" name="check2" value="">웹 알아보기</p>
-                    <p><span></span></p>
-                </li>
-                <li>
-                    <p><input type="checkbox" name="check3" value="">책 읽기</p>
-                    <p><span></span></p>
-                </li>
-                <li>
-                    <p><input type="checkbox" name="check4" value="">거북이한테 전화하기</p>
-                    <p><span></span></p>
-                </li>
-                <li>
-                    <p><input type="checkbox" name="check5" value="">유리랑 소꿉놀이하기</p>
-                    <p><span></span></p>
                 </li>
             </ul>
             <!--// ul.todo_list -->
@@ -60,7 +38,14 @@ export default {
   name: 'todolist',
   data: function() {
     return { 
-		
+		todolist: [
+			{todo: 'Vue.js 복습하기'},
+			{todo: 'Vue.js 과제하기'},
+			{todo: 'velog 기록'},
+			{todo: 'Spring 프로젝트 - 페이징 처리'},
+			{todo: 'Spring 프로젝트 - 첨부파일 개별 삭제 기능 구현'},
+			{todo: '방청소하기'},
+		]
 	}
   },
 }
