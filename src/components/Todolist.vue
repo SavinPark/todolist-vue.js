@@ -13,7 +13,10 @@
             <ul class="todo_list">
                 <li class="todo_list_tit"><p>할 일</p></li>
 				<!--li><p>{{ todolist.filter(todo => todo.done === true).length }} / {{ todolist.length }} 건 처리</p></li-->
-				<li><p>{{ remaining }} / {{ todolist.length }} 건 처리</p></li>
+				<li>
+					<p>{{ remaining }} / {{ todolist.length }} 건 처리</p>
+					<button @click="cleanTodo">처리 완료 삭제</button>
+				</li>
                 <li class="del_btn" v-for="(item, index) in todolist" :key="index">
 					<!--:class="{doneStyle:todo.done}" -->
                     <p :class="{doneStyle:item.done}"><input type="checkbox" name="check1" v-model="item.done">{{ item.todo }}</p>
@@ -70,6 +73,12 @@ export default {
 	  },
 	  editTodo() {
 		 console.log("할 일 수정 기능 구현하기!");
+	  },
+	  cleanTodo() {
+		  //this.todolist = this.todolist.filter(todo => todo.done === false);
+		  this.todolist = this.todolist.filter(function(val) {
+			  return val.done === false;
+		  });
 	  },
   }
 }
